@@ -1,6 +1,6 @@
 
 
-public class rentMusic {
+public class RentMusic {
 //Songs and Store names
 private String storeName;
 private final String[] musicTitles = {"It's Five O'Clock Somewhere", "I Get Around", "Rubber Band Man", "Ventura " +
@@ -16,7 +16,7 @@ private final String[] musticArtist = {"Alan Jackson, Jimmy Buffet", "Beach Boys
      * Constructor for the @class rentMusic
      * @param name the name of the store
      */
-    public rentMusic(String name){
+    public RentMusic(String name){
     storeName = name;
     }
 

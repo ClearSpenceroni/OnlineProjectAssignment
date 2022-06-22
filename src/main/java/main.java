@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class main {
     //Objects
     static Scanner input = new Scanner(System.in);
-    static rentMusic myStore = new rentMusic("Ridiculous Records");
+    static RentMusic myStore = new RentMusic("Ridiculous Records");
 
     //Primitives
     static int userChoice;
