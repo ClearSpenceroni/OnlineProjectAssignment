@@ -28,23 +28,40 @@ public class main {
      * Method that rents the music
      */
     public static void rentMusic(){
-        System.out.println("Here are the song options\n");
-        myStore.displaySongSelections();
-        System.out.print("Choose a song: ");
-        userSelection = input.nextInt();
-        userSelection -= 1;
+        boolean isConfirmed = false;
+        boolean sentinel = false;
+        String userLoop;
+       do {
+           do {
+               System.out.println("Here are the song options\n");
+               myStore.displaySongSelections();
+               System.out.print("Choose a song: ");
+               userSelection = input.nextInt();
+               userSelection -= 1;
 
-        if(!myStore.isRented(userSelection)){
-            input.nextLine();
-            System.out.println("Please type CONFIRM to confirm this song");
-            String userConfirmation = input.nextLine();
-            if(userConfirmation.equals("CONFIRM")){
-                myStore.selectSong(userSelection);
-                System.out.println("You have just rented " + myStore.showSong(userSelection));
-            }
-        }else{
-            System.out.println("\n"+myStore.selectSong(userSelection)+"\n");
-        }
+               if (!myStore.isRented(userSelection)) {
+                   input.nextLine();
+                   System.out.println("Please type CONFIRM to confirm this song or type CANCEL to go back");
+                   String userConfirmation = input.nextLine();
+                   if (userConfirmation.equalsIgnoreCase("CONFIRM")) {
+                       myStore.selectSong(userSelection);
+                       isConfirmed = true;
+                       System.out.println("You have just rented " + myStore.showSong(userSelection));
+                   } else if(userConfirmation.equalsIgnoreCase("cancel")){
+                       break;
+                   }
+               } else {
+                   System.out.println("\n" + myStore.selectSong(userSelection) + "\n");
+               }
+           }while(!isConfirmed);
+           System.out.println("Would you like to rent another song?(YES or NO): ");
+           userLoop = input.nextLine();
+           if(userLoop.equalsIgnoreCase("yes")) {
+               sentinel = true;
+           }else{
+               sentinel = false;
+           }
+       }while(sentinel);
     }
     }
 
