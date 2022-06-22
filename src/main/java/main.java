@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class main {
+    //Objects
     static Scanner input = new Scanner(System.in);
     static rentMusic myStore = new rentMusic("Ridiculous Records");
+
+    //Primitives
     static int userChoice;
     static int userSelection;
 
@@ -21,6 +24,9 @@ public class main {
         System.out.println("Farewell! Come back soon!");
     }
 
+    /**
+     * Method that rents the music
+     */
     public static void rentMusic(){
         System.out.println("Here are the song options\n");
         myStore.displaySongSelections();
